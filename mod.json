@@ -1,0 +1,10 @@
+{
+	"name": "Mainland-Twilight",
+	"version": "0.1.0",
+	"label": "New random map with balanced resources and evening SunColor",
+	"description": "Adds new maps with balanced resource start (Mainland balanced)",
+	"ignoreInCompatibilityChecks": true,
+	"dependencies": [
+		"0ad=0.0.26"
+	]
+}
