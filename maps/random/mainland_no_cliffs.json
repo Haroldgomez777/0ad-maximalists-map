@@ -1,0 +1,12 @@
+{
+	"settings" : {
+		"Name" : "Mainland No Cliffs",
+		"Script" : "mainland_no_cliffs.js",
+		"Description" : "A typical map without any water and with no annoying Cliffs. Balanced food start",
+		"Preview" : "mainland.png",
+		"Keywords": ["multiplayer"],
+		"SupportedBiomes": "mainland_maximalists/",
+		"CircularMap" : true,
+		"TeamPlacements": ["radial", "line", "randomGroup", "stronghold"]
+	}
+}
