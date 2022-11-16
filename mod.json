@@ -1,9 +1,8 @@
 {
-	"name": "Mainland-Twilight",
+	"name": "mainland-twilight",
 	"version": "0.1.0",
-	"label": "New random map with balanced resources and evening SunColor",
-	"description": "Adds new maps with balanced resource start (Mainland balanced)",
-	"ignoreInCompatibilityChecks": true,
+	"label": "Mainland Twilight",
+	"description": "New random maps based on Mainland map and Belgian uplands, add biome evening and night mode, zero mountains/cliffs etc",
 	"dependencies": [
 		"0ad=0.0.26"
 	]
