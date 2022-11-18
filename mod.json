@@ -2,7 +2,7 @@
 	"name": "mainland-twilight",
 	"version": "0.1.0",
 	"label": "Mainland Twilight",
-	"description": "New random maps based on Mainland map and Belgian uplands, add biome evening and night mode, zero mountains/cliffs etc",
+	"description": "New random maps based on Mainland map and Belgian uplands, add evening and night mode, zero mountains/cliffs etc",
 	"dependencies": [
 		"0ad=0.0.26"
 	]
