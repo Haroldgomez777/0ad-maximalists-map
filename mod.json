@@ -3,6 +3,7 @@
 	"version": "0.1.0",
 	"label": "Mainland Twilight",
 	"description": "New random maps based on Mainland map and Belgian uplands, add evening and night mode, zero mountains/cliffs etc",
+	"ignoreInCompatibilityChecks": true,
 	"dependencies": [
 		"0ad=0.0.26"
 	]
