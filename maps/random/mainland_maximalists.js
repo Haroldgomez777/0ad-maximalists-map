@@ -22,11 +22,11 @@ function* GenerateMap(mapSettings) {
 	const oTree3 = g_Gaia.tree3;
 	const oTree4 = g_Gaia.tree4;
 	const oTree5 = g_Gaia.tree5;
-	const sTree1 = g_Gaia.tree6;
-	const sTree2 = g_Gaia.tree7;
-	const sTree3 = g_Gaia.tree8;
-	const sTree4 = g_Gaia.tree9;
-	const sTree5 = g_Gaia.tree0;
+	const sTree1 = g_Gaia.tree6 ?? null;
+	const sTree2 = g_Gaia.tree7 ?? null;
+	const sTree3 = g_Gaia.tree8 ?? null;
+	const sTree4 = g_Gaia.tree9 ?? null;
+	const sTree5 = g_Gaia.tree10 ?? null;
 	const oFruitBush = g_Gaia.fruitBush;
 	const oMainHuntableAnimal = g_Gaia.mainHuntableAnimal;
 	const oSecondaryHuntableAnimal = g_Gaia.secondaryHuntableAnimal;
@@ -92,10 +92,7 @@ function* GenerateMap(mapSettings) {
 
 	createBumps(avoidClasses(clPlayer, 20));
 
-	if (randBool())
-		createHills([tCliff, tCliff, tHill], avoidClasses(clPlayer, 20, clHill, 15), clHill, scaleByMapSize(3, 15));
-	else
-		createMountains(tCliff, avoidClasses(clPlayer, 20, clHill, 15), clHill, scaleByMapSize(3, 15));
+	createPassableHills([tCliff, tCliff, tHill], avoidClasses(clPlayer, 20, clHill, 15), clHill, scaleByMapSize(3, 30));
 
 	var [forestTrees, stragglerTrees] = getTreeCounts(...rBiomeTreeCount(1));
 	createDefaultForests(
@@ -200,11 +197,22 @@ function* GenerateMap(mapSettings) {
 
 	Engine.SetProgress(85);
 
-	createStragglerTrees(
-		[oTree1, oTree2, oTree4, oTree3],
-		avoidClasses(clForest, 8, clHill, 1, clPlayer, 12, clMetal, 6, clRock, 6, clFood, 1),
-		clForest,
-		stragglerTrees);
+	if (sTree1 && sTree2 && sTree3 && sTree4 && sTree5) {
+		createStragglerTrees(
+			[sTree1, sTree2, sTree3, sTree4 && sTree5],
+			avoidClasses(clForest, 8, clHill, 1, clPlayer, 12, clMetal, 6, clRock, 6, clFood, 1),
+			clForest,
+			stragglerTrees);
+	} else {
+
+		createStragglerTrees(
+			[oTree1, oTree2, oTree4, oTree3],
+			avoidClasses(clForest, 8, clHill, 1, clPlayer, 12, clMetal, 6, clRock, 6, clFood, 1),
+			clForest,
+			stragglerTrees);
+	}
+
+
 
 	placePlayersNomad(clPlayer, avoidClasses(clForest, 1, clMetal, 4, clRock, 4, clHill, 4, clFood, 2));
 

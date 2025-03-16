@@ -28,11 +28,10 @@
 			"new_alpine_grass_b",
 			"new_alpine_grass_c"
 		],
-		"forestFloor1": "temperate_forestfloor_02_autumn",
-		"forestFloor2": "temperate_forestfloor_02_autumn",
+		"forestFloor1": "autumn_forestfloor_01",
+		"forestFloor2": "autumn_forestfloor_02",
 		"cliff": [
-			"temperate_cliff_01",
-			"temperate_cliff_02"
+			"baltic_grass_rocks_01"
 		],
 		"tier1Terrain": [
 			"temperate_grass_05"
@@ -47,11 +46,13 @@
 			"temperate_grass_02"
 		],
 		"hill": [
-			"temperate_rocks_dirt_01"
+			"baltic_grass_rocks_01"
 		],
 		"dirt": [
-			"temperate_grass_dirt_01",
-			"temperate_grass_dirt_02"
+			"autumn_grass_dirt_01",
+			"autumn_grass_dirt_02",
+			"autumn_grass_dirt_03",
+			"autumn_grass_dirt_04"
 		],
 		"road": "temperate_paving_01",
 		"roadWild": "temperate_paving_01",
@@ -60,11 +61,16 @@
 		"water": "temperate_mud_01"
 	},
 	"Gaia": {
-		"tree1": "gaia/tree/oak_aut",
+		"tree1": "gaia/tree/maple_autumn",
         "tree2": "gaia/tree/euro_beech_aut",
         "tree3": "gaia/tree/oak_hungarian_autumn",
-        "tree4": "gaia/tree/poplar_lombardy_autumn",
+        "tree4": "gaia/tree/poplar_dead",
         "tree5": "gaia/tree/temperate_autumn",
+		"tree6": "gaia/tree/oak_holly_autumn",
+        "tree7": "gaia/tree/oak_hungarian_autumn",
+        "tree8": "gaia/tree/poplar_dead",
+        "tree9": "gaia/tree/oak_holly_autumn",
+        "tree10": "gaia/tree/maple_autumn",
 		"fruitBush": "gaia/fruit/berry_01",
 		"chicken": "gaia/fauna_chicken",
 		"fish": "gaia/fish/generic",
@@ -76,8 +82,8 @@
 		"metalSmall": "gaia/ore/temperate_small"
 	},
 	"Decoratives": {
-		"grass": "actor|props/flora/grass_soft_large_tall.xml",
-		"grassShort": "actor|props/flora/grass_soft_large.xml",
+		"grass": "actor|props/flora/grass_soft_dry_small.xml",
+		"grassShort": "actor|props/flora/grass_temp_field_brown.xml",
 		"reeds": "actor|props/flora/cattails.xml",
 		"lillies": "actor|props/flora/water_lillies.xml",
 		"rockLarge": "actor|geology/stone_granite_med.xml",
