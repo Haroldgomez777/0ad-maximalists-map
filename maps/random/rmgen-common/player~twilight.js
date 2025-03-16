@@ -2,8 +2,7 @@
  * Returns a random location for each player that meets the given constraints and
  * orders the playerIDs so that players become grouped by team.
  */
-function playerPlacementRandom(playerIDs, constraints = undefined)
-{
+function playerPlacementRandom(playerIDs, constraints = undefined) {
 	let locations = [];
 	let attempts = 0;
 	let resets = 0;
@@ -13,27 +12,24 @@ function playerPlacementRandom(playerIDs, constraints = undefined)
 	let borderDistance = fractionToTiles(0.08);
 
 	let area = createArea(new MapBoundsPlacer(), undefined, new AndConstraint(constraints));
-	
+
 	// Return if constraints return an empty area
 	if (!area.getPoints().length)
 		return undefined;
 
-	for (let i = 0; i < getNumPlayers(); ++i)
-	{
+	for (let i = 0; i < getNumPlayers(); ++i) {
 		const position = pickRandom(area.getPoints());
 		if (!position)
 			return undefined;
 
 		// Minimum distance between initial bases must be a quarter of the map diameter
 		if (locations.some(loc => loc.distanceToSquared(position) < playerMinDistSquared) ||
-		    position.distanceToSquared(mapCenter) > Math.square(mapCenter.x - borderDistance))
-		{
+			position.distanceToSquared(mapCenter) > Math.square(mapCenter.x - borderDistance)) {
 			--i;
 			++attempts;
 
 			// Reset if we're in what looks like an infinite loop
-			if (attempts > 500)
-			{
+			if (attempts > 500) {
 				locations = [];
 				i = -1;
 				attempts = 0;
@@ -53,4 +49,19 @@ function playerPlacementRandom(playerIDs, constraints = undefined)
 		locations[i] = position;
 	}
 	return groupPlayersByArea(playerIDs, locations);
+}
+
+/**
+ * Determine player starting positions on a circular pattern.
+ */
+function playerPlacementCircle(radius, startingAngle = undefined, center = undefined) {
+	const startAngle = startingAngle !== undefined ? startingAngle : randomAngle();
+	let [playerPositions, playerAngles] = distributePointsOnCircle(getNumPlayers(), startAngle, radius, center || g_Map.getCenter());
+	// Get player IDs
+	let playerIDs = getPlayerIDs();
+
+	// Group players by area (teams stay together)
+	[playerIDs, playerPositions] = groupPlayersByArea(playerIDs, playerPositions);
+
+	return [playerIDs, playerPositions.map(p => p.round()), playerAngles, startAngle];
 }

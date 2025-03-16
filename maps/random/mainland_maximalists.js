@@ -22,6 +22,11 @@ function* GenerateMap(mapSettings) {
 	const oTree3 = g_Gaia.tree3;
 	const oTree4 = g_Gaia.tree4;
 	const oTree5 = g_Gaia.tree5;
+	const sTree1 = g_Gaia.tree6;
+	const sTree2 = g_Gaia.tree7;
+	const sTree3 = g_Gaia.tree8;
+	const sTree4 = g_Gaia.tree9;
+	const sTree5 = g_Gaia.tree0;
 	const oFruitBush = g_Gaia.fruitBush;
 	const oMainHuntableAnimal = g_Gaia.mainHuntableAnimal;
 	const oSecondaryHuntableAnimal = g_Gaia.secondaryHuntableAnimal;
