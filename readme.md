@@ -1,4 +1,4 @@
-# 0 A.D. Custom Maps README
+# 0 A.D. Custom Maps
 
 ## New Features
 
