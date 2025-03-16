@@ -4,10 +4,10 @@
 		"Description": "The first leaves have fallen. The landscape is a dazzling dash of colors irrevocably intertwined. The native beech and oak trees of this temperate zone display a multi-colored foliage while animals try to prepare for the approaching winter."
 	},
 	"Environment": {
-		"SunColor": { "r": 1, "g": 0.909804, "b": 0.996078 },
-		"SunElevation": 0.414175,
+		"SunColor": { "r": 1, "g": 0.929804, "b": 0.996078 },
+		"SunElevation": 0.314175,
 		"SunRotation": -1.31922,
-		"AmbientColor": { "r": 0.364706, "g": 0.376471, "b": 0.419608 },
+		"AmbientColor": { "r": 0.264706, "g": 0.376471, "b": 0.419608 },
 		"Water": {
 			"WaterBody": {
 				"Color": { "r": 0.419608, "g": 0.364706, "b": 0.313726 },
