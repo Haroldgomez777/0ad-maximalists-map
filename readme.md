@@ -1,4 +1,4 @@
-# 0 A.D. Custom Maps
+# 0 A.D. Mainland Twilight
 
 ## New Features
 
@@ -18,7 +18,11 @@
 3. Select the map from the custom maps list when starting a new match.
 
 ## Notes
-- The new maps provide enhanced strategic variety and balance. 
-- use better grass texture
+- The new maps provide enhanced strategic variety and balance.
+- Uses better grass texture.
 - Belgian Upland offers a unique food balance by altering wildlife availability.
+
+## Credits
+This mod is based on modifications to the Feldfeld Mod.
+For more details, visit the original mod thread: [Feldfeld Mod](https://wildfiregames.com/forum/topic/53880-feldmap/)
 
