@@ -62,13 +62,13 @@ var g_PlayerbaseTypes = {
 		"walls": false
 	},
 	"radial": {
-		"getPosition": (distance, groupedDistance, startAngle) => playerPlacementCircle(distance, startAngle),
+		"getPosition": (distance, groupedDistance, startAngle) => playerPlacementCircleMt(distance, startAngle),
 		"distance": fractionToTiles(randFloat(0.25, 0.35)),
 		"groupedDistance": fractionToTiles(randFloat(0.08, 0.1)),
 		"walls": true
 	},
 	"randomGroup": {
-		"getPosition": (distance, groupedDistance, startAngle) => playerPlacementRandom(sortAllPlayers()) || playerPlacementCircle(distance, startAngle),
+		"getPosition": (distance, groupedDistance, startAngle) => playerPlacementRandomMt(sortAllPlayers()) || playerPlacementCircleMt(distance, startAngle),
 		"distance": fractionToTiles(randFloat(0.25, 0.35)),
 		"groupedDistance": fractionToTiles(randFloat(0.08, 0.1)),
 		"walls": true

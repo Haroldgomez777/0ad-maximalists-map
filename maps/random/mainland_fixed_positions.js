@@ -82,7 +82,7 @@ function* GenerateMap(mapSettings) {
 
 
 
-	const playerPlacements = playerPlacementCircle(fractionToTiles(playerDistanceFraction + numPlayers * 0.007));
+	const playerPlacements = playerPlacementCircleMt(fractionToTiles(playerDistanceFraction + numPlayers * 0.007));
 	let [playersOrder, playerPositions, playerAngles] = playerPlacements;
 
 	let playerPositionBalanced = playerPlacements;
@@ -225,8 +225,8 @@ function* GenerateMap(mapSettings) {
 		clFood);
 
 	if (!isNomad()) {
-		let playerAreas = getSurroundingAreas(playerPositions);
-		placePlayerFoodBalanced(playerAreas, oFruitBush, null, oMainHuntableAnimal, oSecondaryHuntableAnimal, clFood,
+		let playerAreas = getSurroundingAreasMt(playerPositions);
+		placePlayerFoodBalancedMt(playerAreas, oFruitBush, null, oMainHuntableAnimal, oSecondaryHuntableAnimal, clFood,
 			avoidClasses(clForest, 0, clPlayer, 25, clHill, 1, clMetal, 4, clRock, 4, clFood, 15));
 	}
 

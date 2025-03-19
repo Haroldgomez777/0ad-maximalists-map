@@ -2,7 +2,7 @@
  * Returns a random location for each player that meets the given constraints and
  * orders the playerIDs so that players become grouped by team.
  */
-function playerPlacementRandom(playerIDs, constraints = undefined) {
+function playerPlacementRandomMt(playerIDs, constraints = undefined) {
 	let locations = [];
 	let attempts = 0;
 	let resets = 0;
@@ -54,7 +54,7 @@ function playerPlacementRandom(playerIDs, constraints = undefined) {
 /**
  * Determine player starting positions on a circular pattern.
  */
-function playerPlacementCircle(radius, startingAngle = undefined, center = undefined) {
+function playerPlacementCircleMt(radius, startingAngle = undefined, center = undefined) {
 	const startAngle = startingAngle !== undefined ? startingAngle : randomAngle();
 	let [playerPositions, playerAngles] = distributePointsOnCircle(getNumPlayers(), startAngle, radius, center || g_Map.getCenter());
 	// Get player IDs

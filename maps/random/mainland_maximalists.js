@@ -60,7 +60,7 @@ function* GenerateMap(mapSettings) {
 	var clFood = g_Map.createTileClass();
 	var clBaseResource = g_Map.createTileClass();
 
-	var playerPositions = playerPlacementCircle(fractionToTiles(0.35));
+	var playerPositions = playerPlacementCircleMt(fractionToTiles(0.35));
 	placePlayerBases({
 		"PlayerPlacement": playerPositions,
 		"PlayerTileClass": clPlayer,
@@ -92,7 +92,7 @@ function* GenerateMap(mapSettings) {
 
 	createBumps(avoidClasses(clPlayer, 20));
 
-	createPassableHills([tCliff, tCliff, tHill], avoidClasses(clPlayer, 20, clHill, 15), clHill, scaleByMapSize(3, 30));
+	createPassableHillsMt([tCliff, tCliff, tHill], avoidClasses(clPlayer, 20, clHill, 15), clHill, scaleByMapSize(3, 30));
 
 	var [forestTrees, stragglerTrees] = getTreeCounts(...rBiomeTreeCount(1));
 	createDefaultForests(
@@ -190,8 +190,8 @@ function* GenerateMap(mapSettings) {
 		clFood);
 
 	if (!isNomad()) {
-		let playerAreas = getSurroundingAreas(playerPositions[1]);
-		placePlayerFoodBalanced(playerAreas, oFruitBush, null, oMainHuntableAnimal, oSecondaryHuntableAnimal, clFood,
+		let playerAreas = getSurroundingAreasMt(playerPositions[1]);
+		placePlayerFoodBalancedMt(playerAreas, oFruitBush, null, oMainHuntableAnimal, oSecondaryHuntableAnimal, clFood,
 			avoidClasses(clForest, 0, clPlayer, 25, clHill, 1, clMetal, 4, clRock, 4, clFood, 15));
 	}
 

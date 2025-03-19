@@ -4,7 +4,7 @@
  * @param {Constraint[]} constraints All the constraints to check against.
  * @returns {Vector2D[]} The area of all tiles connected to the start.
  */
-function floodFill(start, constraints)
+function floodFillMt(start, constraints)
 {
 	let constraint = new AndConstraint(constraints);
 	let processedTiles = new Uint8Array(mapSize * mapSize);

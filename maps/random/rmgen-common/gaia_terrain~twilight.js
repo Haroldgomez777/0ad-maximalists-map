@@ -1,7 +1,7 @@
 /**
  * Hills are elevated, planar, impassable terrain areas.
  */
-function createPassableHills(terrainset, constraints, tileClass, count, minSize, maxSize, spread, failFraction = 0.8, elevation = 50, elevationSmoothing = 20)
+function createPassableHillsMt(terrainset, constraints, tileClass, count, minSize, maxSize, spread, failFraction = 0.8, elevation = 50, elevationSmoothing = 20)
 {
 	g_Map.log("Creating hills");
 	createAreas(

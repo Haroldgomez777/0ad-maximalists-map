@@ -14,7 +14,7 @@
  * @param foodAvailability - A relative number describing how abundant food should be.
  * @param huntBerryRatio - A relative number defining which resource is most likely to be picked.
  */
-function placePlayerFoodBalanced(areas, oBerryMain, oBerryStraggler, oMainHuntable, oSecondaryHuntable, clFood, constraints, foodAvailability = 1, huntBerryRatio = 1) {
+function placePlayerFoodBalancedMt(areas, oBerryMain, oBerryStraggler, oMainHuntable, oSecondaryHuntable, clFood, constraints, foodAvailability = 1, huntBerryRatio = 1) {
 	const foodPath = "ResourceSupply/Max";
 	let mainBerryFood = GetBaseTemplateDataValue(Engine.GetTemplate(oBerryMain), foodPath);
 	let mainHuntableFood = GetBaseTemplateDataValue(Engine.GetTemplate(oMainHuntable), foodPath);

@@ -113,7 +113,7 @@ function* GenerateMap() {
 			new TileClassPainter(tHeightRange),
 			new HeightConstraint(lowerHeightLimit, upperHeightLimit));
 
-		let players = area && playerPlacementRandom(sortAllPlayers(), stayClasses(tHeightRange, 15), true);
+		let players = area && playerPlacementRandomMt(sortAllPlayers(), stayClasses(tHeightRange, 15), true);
 		if (players) {
 			[playerIDs, playerPosition] = players;
 			break;
