@@ -1,4 +1,4 @@
-function setupBiome_savanna()
+function setupBiome_savannaMt()
 {
 	g_Gaia.mainHuntableAnimal = pickRandom([
 		"gaia/fauna_wildebeest",

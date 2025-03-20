@@ -1,4 +1,4 @@
-function setupBiome_temperate()
+function setupBiome_temperateMt()
 {
 	if (randBool())
 	{

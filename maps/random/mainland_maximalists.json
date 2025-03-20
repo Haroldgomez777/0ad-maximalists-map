@@ -2,7 +2,7 @@
 	"settings" : {
 		"Name" : "Mainland Twilight",
 		"Script" : "mainland_maximalists.js",
-		"Description" : "A typical map without any water. Balanced food start",
+		"Description" : "A typical map without any water. \n\n[color=\"red\"]IMPORTANT: This map requires the mod Mainland Twilight, download it using the in-game mod downloader.[/color]",
 		"Preview" : "mainland.png",
 		"Keywords": ["multiplayer"],
 		"SupportedBiomes": "mainland_maximalists/",

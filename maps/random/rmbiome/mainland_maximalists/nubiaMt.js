@@ -1,4 +1,4 @@
-function setupBiome_nubia()
+function setupBiome_nubiaMt()
 {
 	g_Gaia.mainHuntableAnimal = pickRandom([
 		"gaia/fauna_wildebeest",

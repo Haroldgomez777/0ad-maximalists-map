@@ -1,4 +1,4 @@
-function setupBiome_aegean()
+function setupBiome_aegeanMt()
 {
 	[g_Gaia.tree1, g_Gaia.tree2] = pickRandom([[
 			"gaia/tree/cypress_wild",

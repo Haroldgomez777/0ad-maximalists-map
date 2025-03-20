@@ -1,4 +1,4 @@
-function setupBiome_sahara()
+function setupBiome_saharaMt()
 {
 	[g_Gaia.tree1, g_Gaia.tree2] = pickRandom([
 		[
