@@ -7,22 +7,13 @@
   - Dark Night
   - Evening
 
-### New Maps
-#### Belgian Upland
-- Chickens near the CC (Civic Center)
-- No deer or rabbits
-
-## Installation
-1. Place the map files in the appropriate 0 A.D. mods or user maps directory.
-2. Ensure they are properly recognized in the game.
-3. Select the map from the custom maps list when starting a new match.
-
 ## Notes
-- The new maps provide enhanced strategic variety and balance.
-- Uses better grass texture.
-- Belgian Upland offers a unique food balance by altering wildlife availability.
+- Uses a clean-looking grass texture.
+- Introduces nighttime gameplay in 0 A.D.
 
 ## Credits
-This mod is based on modifications to the Feldfeld Mod.
-For more details, visit the original mod thread: [Feldfeld Mod](https://wildfiregames.com/forum/topic/53880-feldmap/)
+This mod is based on modifications to the [Feldfeld Mod](https://wildfiregames.com/forum/topic/53880-feldmap/) but has been stripped down into a lightweight version.  
+It utilizes public mod library files instead of customized versions of Feldmap to ensure compatibility.  
+Partial customization is implemented directly in the map generation script to prevent out-of-sync (OOS) errors.  
 
+For more details, visit the original mod thread: [Mainland Twilight Mod](https://wildfiregames.com/forum/topic/96802-mainland-twilight-new-mod-for-team-games/)
