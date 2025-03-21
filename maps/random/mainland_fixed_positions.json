@@ -1,6 +1,6 @@
 {
 	"settings" : {
-		"Name" : "Mainland Fixed positions",
+		"Name" : "Mainland Fixed Positions",
 		"Script" : "mainland_fixed_positions.js",
 		"Description" : "A typical map without any water and with no annoying Cliffs and Fixed positions. Balanced food start",
 		"Preview" : "mainland.png",
