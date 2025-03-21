@@ -1,20 +1,20 @@
-Engine.LoadLibrary("rmgen");
-Engine.LoadLibrary("rmgen-common");
-Engine.LoadLibrary("rmgen2");
-Engine.LoadLibrary("rmbiome");
-
 function* GenerateMap(mapSettings) {
 
-    // Define the allowed maps
-    const allowedMaps = [
-        "Mainland Fixed Positions",
-    ];
+	// Define the allowed maps
+	const allowedMaps = [
+		"Mainland Fixed Positions",
+	];
 
-    // Check if the current map is in the allowed maps
-    if (!allowedMaps.includes(mapSettings.mapName)) {
-        error("This script is not intended for the current map. Terminating execution.");
-        return;
-    }
+	// Check if the current map is in the allowed maps
+	if (!allowedMaps.includes(mapSettings.mapName)) {
+		error("This script is not intended for the current map. Terminating execution.");
+		return;
+	} else {
+		Engine.LoadLibrary("rmgen");
+		Engine.LoadLibrary("rmgen-common");
+		Engine.LoadLibrary("rmgen2");
+		Engine.LoadLibrary("rmbiome");
+	}
 	setBiome(mapSettings.Biome);
 
 	const tMainTerrain = g_Terrains.mainTerrain;
@@ -67,10 +67,10 @@ function* GenerateMap(mapSettings) {
 	var clFood = g_Map.createTileClass();
 	var clBaseResource = g_Map.createTileClass();
 
-	initTileClasses();
+	initTileClassesMt();
 	createArea(
 		new MapBoundsPlacer(),
-		new TileClassPainter(g_TileClasses.land));
+		new TileClassPainter(g_TileClassesMt.land));
 
 	let playerDistanceFraction;
 

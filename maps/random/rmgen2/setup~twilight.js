@@ -1,4 +1,4 @@
-var g_Amounts = {
+var g_AmountsMt = {
 	"scarce": 0.2,
 	"few": 0.5,
 	"normal": 1,
@@ -6,7 +6,7 @@ var g_Amounts = {
 	"tons": 3
 };
 
-var g_Mixes = {
+var g_MixesMt = {
 	"same": 0,
 	"similar": 0.1,
 	"normal": 0.25,
@@ -14,7 +14,7 @@ var g_Mixes = {
 	"unique": 0.75
 };
 
-var g_Sizes = {
+var g_SizesMt = {
 	"tiny": 0.5,
 	"small": 0.75,
 	"normal": 1,
@@ -22,11 +22,11 @@ var g_Sizes = {
 	"huge": 1.5,
 };
 
-var g_AllAmounts = Object.keys(g_Amounts);
-var g_AllMixes = Object.keys(g_Mixes);
-var g_AllSizes = Object.keys(g_Sizes);
+var g_AllAmountsMt = Object.keys(g_AmountsMt);
+var g_AllMixesMt = Object.keys(g_MixesMt);
+var g_AllSizesMt = Object.keys(g_SizesMt);
 
-var g_DefaultTileClasses = [
+var g_DefaultTileClassesMt = [
 	"animals",
 	"baseResource",
 	"berries",
@@ -52,11 +52,11 @@ var g_DefaultTileClasses = [
 	"water"
 ];
 
-var g_TileClasses;
+var g_TileClassesMt;
 
-var g_PlayerbaseTypes = {
+var g_PlayerbaseTypesMt = {
 	"line": {
-		"getPosition": (distance, groupedDistance, startAngle) => placeLine(getTeamsArray(), distance, groupedDistance, startAngle),
+		"getPosition": (distance, groupedDistance, startAngle) => placeLineMt(getTeamsArrayMt(), distance, groupedDistance, startAngle),
 		"distance": fractionToTiles(randFloat(0.2, 0.35)),
 		"groupedDistance": fractionToTiles(randFloat(0.08, 0.1)),
 		"walls": false
@@ -74,7 +74,7 @@ var g_PlayerbaseTypes = {
 		"walls": true
 	},
 	"stronghold": {
-		"getPosition": (distance, groupedDistance, startAngle) => placeStronghold(getTeamsArray(), distance, groupedDistance, startAngle),
+		"getPosition": (distance, groupedDistance, startAngle) => placeStrongholdMt(getTeamsArrayMt(), distance, groupedDistance, startAngle),
 		"distance": fractionToTiles(randFloat(0.2, 0.35)),
 		"groupedDistance": fractionToTiles(randFloat(0.08, 0.1)),
 		"walls": false
@@ -84,7 +84,7 @@ var g_PlayerbaseTypes = {
 /**
  * Adds an array of elements to the map.
  */
-function addElements(elements)
+function addElementsMt(elements)
 {
 	for (let element of elements)
 		element.func(
@@ -92,49 +92,49 @@ function addElements(elements)
 				avoidClasses.apply(null, element.avoid),
 				stayClasses.apply(null, element.stay || null)
 			],
-			pickSize(element.sizes),
-			pickMix(element.mixes),
-			pickAmount(element.amounts),
+			pickSizeMt(element.sizes),
+			pickMixMt(element.mixes),
+			pickAmountMt(element.amounts),
 			element.baseHeight || 0);
 }
 
 /**
  * Converts "amount" terms to numbers.
  */
-function pickAmount(amounts)
+function pickAmountMt(amounts)
 {
 	let amount = pickRandom(amounts);
 
-	if (amount in g_Amounts)
-		return g_Amounts[amount];
+	if (amount in g_AmountsMt)
+		return g_AmountsMt[amount];
 
-	return g_Amounts.normal;
+	return g_AmountsMt.normal;
 }
 
 /**
  * Converts "mix" terms to numbers.
  */
-function pickMix(mixes)
+function pickMixMt(mixes)
 {
 	let mix = pickRandom(mixes);
 
-	if (mix in g_Mixes)
-		return g_Mixes[mix];
+	if (mix in g_MixesMt)
+		return g_MixesMt[mix];
 
-	return g_Mixes.normal;
+	return g_MixesMt.normal;
 }
 
 /**
  * Converts "size" terms to numbers.
  */
-function pickSize(sizes)
+function pickSizeMt(sizes)
 {
 	let size = pickRandom(sizes);
 
-	if (size in g_Sizes)
-		return g_Sizes[size];
+	if (size in g_SizesMt)
+		return g_SizesMt[size];
 
-	return g_Sizes.normal;
+	return g_SizesMt.normal;
 }
 
 /**
@@ -146,17 +146,17 @@ function pickSize(sizes)
  * @param {number} startAngle - determined by the map that might want to place something between players
  * @returns {Array|undefined} - If successful, each element is an object that contains id, angle, x, z for each player
  */
-function createBasesByPattern(type, distance, groupedDistance, startAngle)
+function createBaseMtsByPatternMt(type, distance, groupedDistance, startAngle)
 {
-	return createBases(...g_PlayerbaseTypes[type].getPosition(distance, groupedDistance, startAngle), g_PlayerbaseTypes[type].walls);
+	return createBaseMts(...g_PlayerbaseTypesMt[type].getPosition(distance, groupedDistance, startAngle), g_PlayerbaseTypesMt[type].walls);
 }
 
-function createBases(playerIDs, playerPosition, walls)
+function createBaseMts(playerIDs, playerPosition, walls)
 {
 	g_Map.log("Creating bases");
 
 	for (let i = 0; i < getNumPlayers(); ++i)
-		createBase(playerIDs[i], playerPosition[i], walls);
+		createBaseMt(playerIDs[i], playerPosition[i], walls);
 
 	return [playerIDs, playerPosition];
 }
@@ -167,20 +167,20 @@ function createBases(playerIDs, playerPosition, walls)
  * @param {Object} player - contains id, angle, x, z
  * @param {boolean} walls - Whether or not iberian gets starting walls
  */
-function createBase(playerID, playerPosition, walls)
+function createBaseMt(playerID, playerPosition, walls)
 {
 	placePlayerBase({
 		"playerID": playerID,
 		"playerPosition": playerPosition,
-		"PlayerTileClass": g_TileClasses.player,
-		"BaseResourceClass": g_TileClasses.baseResource,
-		"baseResourceConstraint": avoidClasses(g_TileClasses.water, 0, g_TileClasses.mountain, 0),
+		"PlayerTileClass": g_TileClassesMt.player,
+		"BaseResourceClass": g_TileClassesMt.baseResource,
+		"baseResourceConstraint": avoidClasses(g_TileClassesMt.water, 0, g_TileClassesMt.mountain, 0),
 		"Walls": g_Map.getSize() > 192 && walls,
 		"CityPatch": {
 			"outerTerrain": g_Terrains.roadWild,
 			"innerTerrain": g_Terrains.road,
 			"painters": [
-				new TileClassPainter(g_TileClasses.player)
+				new TileClassPainter(g_TileClassesMt.player)
 			]
 		},
 		"StartingAnimal": {
@@ -208,7 +208,7 @@ function createBase(playerID, playerPosition, walls)
 /**
  * Return an array where each element is an array of playerIndices of a team.
  */
-function getTeamsArray()
+function getTeamsArrayMt()
 {
 	var playerIDs = sortAllPlayers();
 	var numPlayers = getNumPlayers();
@@ -246,7 +246,7 @@ function getTeamsArray()
  *
  * @returns {Array} - contains id, angle, x, z for every player
  */
-function placeLine(teamsArray, distance, groupedDistance, startAngle)
+function placeLineMt(teamsArray, distance, groupedDistance, startAngle)
 {
 	let playerIDs = [];
 	let playerPosition = [];
@@ -280,7 +280,7 @@ function placeLine(teamsArray, distance, groupedDistance, startAngle)
  * @param groupedDistance - distance between neighboring players
  * @param {number} startAngle - determined by the map that might want to place something between players
  */
-function placeStronghold(teamsArray, distance, groupedDistance, startAngle)
+function placeStrongholdMt(teamsArray, distance, groupedDistance, startAngle)
 {
 	var mapCenter = g_Map.getCenter();
 
@@ -301,7 +301,7 @@ function placeStronghold(teamsArray, distance, groupedDistance, startAngle)
 		if (teamsArray[i].length == 1)
 			teamGroupDistance = fractionToTiles(0);
 
-		// TODO: Ensure players are not placed outside of the map area, similar to placeLine
+		// TODO: Ensure players are not placed outside of the map area, similar to placeLineMt
 
 		// Create player base
 		for (var p = 0; p < teamsArray[i].length; ++p)
@@ -321,14 +321,14 @@ function placeStronghold(teamsArray, distance, groupedDistance, startAngle)
  * @param {Array} newClasses
  * @returns {Object} - maps from classname to ID
  */
-function initTileClasses(newClasses)
+function initTileClassesMt(newClasses)
 {
-	var classNames = g_DefaultTileClasses;
+	var classNames = g_DefaultTileClassesMt;
 
 	if (newClasses)
 		classNames = classNames.concat(newClasses);
 
-	g_TileClasses = {};
+	g_TileClassesMt = {};
 	for (var className of classNames)
-		g_TileClasses[className] = g_Map.createTileClass();
+		g_TileClassesMt[className] = g_Map.createTileClass();
 }

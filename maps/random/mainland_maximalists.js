@@ -1,19 +1,20 @@
-Engine.LoadLibrary("rmgen");
-Engine.LoadLibrary("rmgen-common");
-Engine.LoadLibrary("rmbiome");
-
 function* GenerateMap(mapSettings) {
 
-    // Define the allowed maps
-    const allowedMaps = [
-        "Mainland Twilight",
-    ];
+	// Define the allowed maps
+	const allowedMaps = [
+		"Mainland Twilight",
+	];
 
-    // Check if the current map is in the allowed maps
-    if (!allowedMaps.includes(mapSettings.mapName)) {
-        error("This script is not intended for the current map. Terminating execution.");
-        return;
-    }
+	// Check if the current map is in the allowed maps
+	if (!allowedMaps.includes(mapSettings.mapName)) {
+		error("This script is not intended for the current map. Terminating execution.");
+		return;
+	} else {
+
+		Engine.LoadLibrary("rmgen");
+		Engine.LoadLibrary("rmgen-common");
+		Engine.LoadLibrary("rmbiome");
+	}
 	setBiome(mapSettings.Biome);
 
 	const tMainTerrain = g_Terrains.mainTerrain;
